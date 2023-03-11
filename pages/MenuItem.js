@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import SubMenu from './SubMenu';
+import React, { useState } from "react";
+import Image from "next/image";
+import SubMenu from "./SubMenu";
 
-function MenuItem({ item }) {
+export default function MenuItem({ item }) {
   const [showmenu, setShowmenu] = useState(false);
 
   function handleDropdownMenu() {
@@ -11,13 +11,16 @@ function MenuItem({ item }) {
 
   return item.submenu && item.submenu.length > 0 ? (
     <li className="relative" key={item.id}>
-      <a
-        className="flex items-center"
-        onClick={handleDropdownMenu}
-        href="#"
-      >
+      <a className="flex items-center" onClick={handleDropdownMenu} href="#">
         {item.title}
-        <Image src="/images/arrow.png" width={10} height={10} alt="" layout="fixed" className="ml-1"/>
+        <Image
+          src="/images/arrow.png"
+          width={10}
+          height={10}
+          alt=""
+          layout="fixed"
+          className="ml-1"
+        />
       </a>
       <SubMenu submenu={item.submenu} showmenu={showmenu} />
     </li>
@@ -26,7 +29,5 @@ function MenuItem({ item }) {
       {item.title}
     </li>
   );
+  // Component logic goes here
 }
-
-export default MenuItem;
-

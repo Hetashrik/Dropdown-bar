@@ -23,7 +23,7 @@ function NavBar() {
       <nav className="w-1/2 mx-auto">
         <ul className="text-white flex items-center">
           {menu_items.map((item) => (
-            <MenuItem key={item.id} item={item} />
+            <MenuItem item={item} />
           ))}
         </ul>
       </nav>
